@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SuliCsengő</title>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="SuliCsengő - Az iskolai csengetés szimulátor">
+		<meta name="keywords" content="csengő,sulicsengő,iskola,suli,oktatás,online oktatás,online csengő,becsengettek,kicsengettek,tanóra,tanár,diák,digitális oktatás">
+		<meta name="robots" content="index,nofollow">
+		<link rel="stylesheet" href="css/switch.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/switch.js"></script>
+		<script src="js/cookie.js"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160703303-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-160703303-2');
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="init">
+				<h1>SuliCsengő</h1>
+				<p>Ez az oldal abból a célból kifolyólag lett létrehozva, hogy szimulálja az iskolákban is megtalálható időrendi csengetést, amelyek a tanítási órák kezdetét, illetve végét jelzik. A <b>COVID-19</b> járvány miatt ugyanis ezeket a csengőket most nem hallhatjuk, így mint minden másra, erre is online alternatívát kellett keresni.</p>
+				<p>Az oldal teljesen hobbiból készült, azonban hasznos lehet a diákoknak és tanároknak is egyaránt a mindennapokban, hogy értesüljenek az órák kezdetéről és végéről.</p>
+				<p>Az oldal betöltéséhez kattintson a gombra.</p>
+				<button id="initBTN">Tovább</button>
+            </div>
+			<div id="board">
+				<h1>Jelenleg <span id="nprefixDOM"></span><span id="isBreak"></span><span id="statusDOM"></span></h1>
+				<p><span id="untilWhat"></span> még <span id="time"></span> van hátra.</p>
+                <p class="bottommargin"><span id="lessonStartDOM"></span> -> <span id="currentTime"></span> -> <span id="lessonEndDOM"></span></p>
+                <p id="soundStatusWrapper">Hang: <span id="soundStatus">kikapcsolva</span></p>
+				<button id="toggleSettings">Beállítások</button>
+            </div>
+            <div id="cookiealert">
+                <h1>Sütis figyelmeztetés</h1>
+                <p>A beállítások elmentéséhez a felhasználó számítógépén cookie-kat tárolunk.</p>
+                <p><button id="cookieDecline">Elutasítom, vissza</button> <button id="cookieAccept">Elfogadom, tovább</button></p>
+            </div>
+			<div id="settingsDOM">
+                <p><input type="checkbox" class="switch-success" id="soundCB"> Hang engedélyezése</p>
+				<p id="sounds">
+					<button data-target="handbell.mp3" class="selected">Kézi csengő</button>
+					<button data-target="bell.mp3">Asztali csengő</button>
+					<button data-target="school.mp3">Hagyományos csengő</button>
+					<button data-target="custom">Egyéni</button>
+				</p>
+                <p>
+					Csengetési rend:<br>
+					<table id="scheduleDOM">
+						<tr id="scheduleSample">
+							<td>1. óra:</td>
+							<td><input maxlength="2">:<input maxlength="2"> -> <input maxlength="2">:<input maxlength="2"></td>
+						</tr>
+					</table>
+					<p id="saved">Mentve!</p>
+					<button id="saveScheduleBTN">Mentés</button>
+				</p>
+				<button id="backBtn">Vissza</button>
+			</div>
+		</div>
+		<div id="pagecredits">Készítette: Blackdog<hr>Hangeffektek: <a href="https://picturetosound.com">picturetosound</a></div>
+		<script src="js/script.js"></script>
+	</body>
+</html>

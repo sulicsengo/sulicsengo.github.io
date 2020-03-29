@@ -1,0 +1,41 @@
+* { padding: 0; margin: 0 }
+*:focus { outline: none }
+
+body { background-color: #333; color: #aaa; font-size: 18pt; font-family: "Arial" }
+h1 { margin-bottom: 1em }
+p { margin: 1em 0 }
+a { color: #aaa; text-decoration: none; }
+button { padding: 10px; background: #141414; color: #ddd; border: 0 }
+button:hover, #settingsDOM button.selected { background: #333; color: #fff; cursor: pointer }
+
+.switch  { border-color: #000 !important }
+.fail { outline: 1px #F00 solid; color: #F00; }
+
+#container { width: 30%; position: absolute; top: 50%; right: 50%; transform: translate(50%,-50%); background-color: #222; text-align: center; box-shadow: #000 2px 2px 0px; padding: 15px; }
+#time { color: #FA0 }
+#lessonStartDOM, #lessonEndDOM { color: #666 }
+#toggleSettings { float: right }
+#backBtn { float: left }
+#init p { text-align: justify; font-size: 12pt; }
+#board, #cookiealert, #settingsDOM { display: none }
+#soundStatusWrapper { float: left; color: #888; font-size: 12pt; margin-top: .5em }
+#cookieAccept { color: #0F0 }
+#cookieDecline { color: #F00 }
+#saved { color: #0F0; font-size: 12pt; display: none; }
+#scheduleDOM { width: 100%; margin-bottom: 1em }
+#scheduleDOM * { cursor: default }
+#scheduleDOM input { width: 30px; background: #111; color: #bbb; padding: 5px; border-radius: 10px; font-size: 12pt; border: 0; text-align: center }
+#scheduleDOM input:active, #scheduleDOM input:hover, #scheduleDOM input:focus { color: #fa0 }
+#scheduleDOM #scheduleSample { display: none }
+#pagecredits { position: fixed; bottom: 0; right: 0; font-size: 10pt; text-align: center; }
+#pagecredits hr { border-color: #555; }
+
+@media (max-width: 1680px) {
+    #container { width: 60% }
+}
+@media (max-width: 1280px) {
+    #container { width: 90% }
+}
+@media (max-width: 860px) {
+    #container { width: 100%; padding: 15px 0 15px 0 }
+}

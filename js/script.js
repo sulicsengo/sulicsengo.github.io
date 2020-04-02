@@ -9,7 +9,7 @@ let schedule = [
     [14,30], [15,10],
     [15,15], [15,55]
 ];
-var lastBreak = true, soundEnabled = false, timer, currentSound = "handbell.mp3", settings = {}, ignoreCB = false;
+var lastBreak = true, soundEnabled = false, started = false, currentSound = "handbell.mp3", settings = {}, ignoreCB = false;
 var checkbox = new Switch(soundCB, { 
 		onSwitchColor: 'rgb(40, 189, 74)',
 		offSwitchColor: 'rgb(143, 197, 155)',
@@ -31,6 +31,7 @@ function enableSound() {
 soundCB.addEventListener("click", enableSound);
 
 function firstInteract() {
+	started = true;
 	bellSound.play().then(resetAudio);
 	init.style.display = "none";
 	board.style.display = "block";
@@ -92,6 +93,7 @@ function resetAudio() {
 }
 
 function getCurrentLesson() {
+    if(!started) return;
     let d = new Date();
     let h = d.getHours();
     let m = d.getMinutes();
@@ -108,9 +110,7 @@ function getCurrentLesson() {
         if(soundEnabled) bellSound.play();
         lastBreak = isBreakNow;
     }
-    
-    timer = setTimeout(getCurrentLesson, 60E3);
-    
+        
     if(i == schedule.length || i == -1) {
         isBreak.innerHTML = "nincs tanítás";
         isBreak.style.color = "#F00";
@@ -181,8 +181,6 @@ function saveSchedule() {
 	schedule = newSchedule;
 	settings.schedule = schedule;
 	saveSettings();
-	getCurrentLesson();
-	nextMinuteTimer();
 }
 saveScheduleBTN.addEventListener("click", saveSchedule);
 
@@ -211,15 +209,10 @@ function changeSound(e) {
 }
 sounds.addEventListener("click", changeSound);
 
-function nextMinuteTimer() {
-	if(timer) clearTimeout(timer);
-	let secondsUntilNextMinute = 60 - Math.floor(Date.now() / 1000)%60;
-	timer = setTimeout(getCurrentLesson, secondsUntilNextMinute * 1E3);
-}
 loadSettings();
 loadSchedule();
+setInterval(getCurrentLesson, 1000);
 getCurrentLesson();
-nextMinuteTimer();
 
 function s2hs(s) { let h = Math.floor(s/60); s -= h*60; return h>0?h+" óra "+s+" perc":s+" perc"; }
 function nprefix(n) { return ["1","5"].indexOf(n.toString()[0])!=-1?"az":"a"; }

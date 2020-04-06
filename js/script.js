@@ -226,7 +226,7 @@ sounds.addEventListener("click", changeSound);
 
 /* quick & temporary changes */
 function switchToNormalSchedule() {
-    schedule = scheduleNormal;
+    	schedule = scheduleNormal;
 	settings.schedule = schedule;
 	saveSettings();
 	window.location.reload();
@@ -234,7 +234,7 @@ function switchToNormalSchedule() {
 switchToNormalScheduleBTN.addEventListener("click",switchToNormalSchedule);
 
 function switchToShortSchedule() {
-    schedule = scheduleNormal;
+    	schedule = scheduleShort;
 	settings.schedule = schedule;
 	saveSettings();
 	window.location.reload();

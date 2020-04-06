@@ -1,4 +1,4 @@
-let schedule = [
+let scheduleNormal = [
     [8,0], [8,45],
     [8,55], [9,40],
     [9,50], [10,35],
@@ -9,6 +9,21 @@ let schedule = [
     [14,30], [15,10],
     [15,15], [15,55]
 ];
+
+let schedule = scheduleNormal;
+
+let scheduleShort = [
+	[8,0], [8,30],
+	[8,40], [9,10],
+	[9,20], [9,50],
+	[10,0], [10,30],
+	[10,40], [11,10],
+	[11,20], [11,50],
+	[12,0], [12,30],
+	[12,40], [13,10],
+	[13,20], [13,50]
+];
+
 var lastBreak = true, soundEnabled = false, started = false, currentSound = "handbell.mp3", settings = {}, ignoreCB = false;
 var checkbox = new Switch(soundCB, { 
 		onSwitchColor: 'rgb(40, 189, 74)',
@@ -208,6 +223,23 @@ function changeSound(e) {
 	e.target.className = "selected";
 }
 sounds.addEventListener("click", changeSound);
+
+/* quick & temporary changes */
+function switchToNormalSchedule() {
+    schedule = scheduleNormal;
+	settings.schedule = schedule;
+	loadSchedule();
+	saveSettings();
+}
+switchToNormalScheduleBTN.addEventListener("click",switchToNormalSchedule);
+
+function switchToShorSchedule() {
+    schedule = scheduleNormal;
+	settings.schedule = schedule;
+	loadSchedule();
+	saveSettings();
+}
+switchToShortScheduleBTN.addEventListener("click",switchToShortSchedule);
 
 loadSettings();
 loadSchedule();

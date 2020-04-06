@@ -233,7 +233,7 @@ function switchToNormalSchedule() {
 }
 switchToNormalScheduleBTN.addEventListener("click",switchToNormalSchedule);
 
-function switchToShorSchedule() {
+function switchToShortSchedule() {
     schedule = scheduleNormal;
 	settings.schedule = schedule;
 	loadSchedule();

@@ -228,16 +228,16 @@ sounds.addEventListener("click", changeSound);
 function switchToNormalSchedule() {
     schedule = scheduleNormal;
 	settings.schedule = schedule;
-	loadSchedule();
 	saveSettings();
+	window.location.reload();
 }
 switchToNormalScheduleBTN.addEventListener("click",switchToNormalSchedule);
 
 function switchToShortSchedule() {
     schedule = scheduleNormal;
 	settings.schedule = schedule;
-	loadSchedule();
 	saveSettings();
+	window.location.reload();
 }
 switchToShortScheduleBTN.addEventListener("click",switchToShortSchedule);
 
